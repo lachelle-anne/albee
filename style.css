@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo&family=Dancing+Script&family=Nunito&display=swap");
+
+:root {
+  --primary-color: rgb(255, 203, 92);
+  --primary-variant: #e4ba32;
+  --secondary-color: #dab22f;
+  --on-primary: rgb(250, 250, 250);
+  --on-background: rgb(66, 66, 66);
+  --on-background-alt: rgba(66, 66, 66, 0.7);
+  --background: #fdfdfd;
+  --image-border: rgb(165, 164, 164);
+  --image-fill: rgb(230, 230, 230);
+  --box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.5);
+  --image-text: #000;
+}
+
+[data-theme="dark"] {
+  --primary-color: rgb(255, 203, 92);
+  --primary-variant: #6c63ff;
+  --secondary-color: #03dac5;
+  --on-primary: #000;
+  --on-background: rgba(255, 255, 255, 0.9);
+  --on-background-alt: rgba(255, 255, 255, 0.7);
+  --background: #242527;
+  --image-border: rgb(79, 80, 80);
+  --image-fill: rgb(53, 53, 54);
+  --box-shadow: 0 5px 20px 1px rgba(77, 77, 77, 0.5);
+  --image-text: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--on-background);
+  font-family: Arimo, sans-serif;
+  background-color: var(--background);
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 380px;
+}
+h1 {
+  font-family: sans-serif;
+  font-size: 50px;
+  margin-bottom: 25px;
+}
+
+h2 {
+  color: var(--on-background-alt);
+  font-size: 32px;
+  font-weight: normal;
+}
+
+/* Navigation */
+nav {
+  z-index: 10;
+  position: fixed;
+  font-family: Nunito, sans-serif;
+  font-size: 24px;
+  letter-spacing: 3px;
+  padding: 25px;
+  width: 100vw;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(4px);
+  align-content: right;
+}
+
+a {
+  margin-right: 25px;
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  font-weight: bold;
+}
+
+a:hover,
+a:focus {
+  color: var(--on-background);
+  border-bottom: 3px solid;
+}
+
+.nav a:active {
+  color: var(--on-background);
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  width: 200px;
+  height: 250px;
+}
+.images {
+  display: block;
+}
+.image {
+  opacity: 1;
+  display: block;
+  border: 1px solid var(--image-border);
+  border-radius: 10px;
+  object-fit: cover;
+  background: var(--image-fill);
+  box-shadow: var(--box-shadow);
+  transition: 0.5s ease;
+  width: 200px;
+  height: 250px;
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+
+.image-text {
+  position: absolute;
+  opacity: 0;
+  color: var(--image-text);
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.5s ease;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  padding-bottom: 20px;
+  font-family: sans-serif;
+}
+
+.image-container:hover .image-text {
+  opacity: 1;
+}
+
+.image-container:hover .image {
+  opacity: 0.3;
+}
+
+p {
+  margin: 0;
+  line-height: 25px;
+}
+
+/* Dark Mode Toggle */
+
+.toggle-text {
+  position: relative;
+  top: -4px;
+  right: 5px;
+  color: var(--on-background);
+}
+
+.theme-switch {
+  height: 30px;
+  width: 30px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+*/ .fas {
+  font-size: 30px;
+  padding: 2px;
+}
+
+/*Home Page*/
+.logo {
+  text-align: left;
+  padding: 30px;
+  position: fixed;
+  top: 50%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+}
+
+.logo-image {
+  max-width: 200px;
+  min-height: 220px;
+  justify-content: center;
+  align-self: center;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 1050px) {
+  .logo {
+    display: contents;
+  }
+  section {
+    padding-left: 0;
+  }
+  .text-box {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.text-box {
+  width: 40%;
+  text-align: justify;
+  background: rgb(0 0 0 / 50%);
+  color: rgb(250, 250, 250);
+  border-radius: 10px;
+  padding: 30px;
+}
+
+/* Media Settings - Large Tablet Portrait*/
+@media screen and (max-width: 768px) {
+  body {
+    background-size: auto;
+  }
+  .container {
+    max-width: 560px;
+    min-width: 460px;
+  }
+}
+
+/* Media Settings - Small Tablet Portrait*/
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 450px;
+    min-width: 380px;
+  }
+}
+
+/* Media Settings - Mobile Landscape + Portrait */
+@media screen and (max-width: 480px) {
+  .container {
+    max-width: 330px;
+    min-width: 300px;
+  }
+}
+
+/* Media Settings - Mobile Portrait */
+@media screen and (max-width: 320px) {
+  .container {
+    max-width: 295px;
+    min-width: 260px;
+  }
+}
